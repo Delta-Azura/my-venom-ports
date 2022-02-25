@@ -1,0 +1,14 @@
+# description	: Python cups bindings
+# homepage	: http://cyberelk.net/tim/software/pycups/
+# depends	: 
+
+name=python3-cups
+version=2.0.1
+release=1
+
+source="https://github.com/OpenPrinting/pycups/archive/v$version.tar.gz"
+
+build() {
+    cd pycups-$version
+    python3 setup.py install --prefix=/usr --root=$PKG
+}
