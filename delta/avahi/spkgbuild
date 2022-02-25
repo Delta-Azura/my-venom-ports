@@ -1,0 +1,37 @@
+# description	: Multicast/unicast DNS-SD framework
+# homepage	: http://www.avahi.org
+# depends	: 
+
+
+name=avahi
+version=0.8
+release=1
+
+source="https://github.com/lathiat/avahi/releases/download/v$version/avahi-$version.tar.gz"
+
+build() {
+# prepare
+(getent group $name > /dev/null) || groupadd -fg 84 $name
+(getent passwd $name > /dev/null) || useradd  -c  "Avahi Daemon Owner" \
+-d /var/run/avahi-daemon -u 84 -g $name -s /bin/false $name
+
+cd $name-$version
+./configure \
+--prefix=/usr \
+--sysconfdir=/etc \
+--localstatedir=/var \
+--with-distro=none   \
+--disable-mono \
+--disable-python \
+--disable-gtk3 \
+--disable-qt3 \
+--disable-qt4 \
+--disable-qt5 \
+--disable-gtk \
+--disable-monodoc \
+--enable-core-docs \
+--with-systemdsystemunitdir=/lib/systemd/system
+make
+make DESTDIR=$PKG install
+
+}
