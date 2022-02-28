@@ -2,9 +2,9 @@
 # depends	: libxkbfile gnupg gtk3 libsecret nss libnotify
 
 name=vscode-bin
-version=1.60
+version=1.64.2-
 release=1
-source="https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+source="https://github.com/Microsoft/vscode/archive/${version}.tar.gz"
 
 build() {
 	ls
