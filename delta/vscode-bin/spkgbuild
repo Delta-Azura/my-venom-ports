@@ -2,10 +2,20 @@
 # depends	: libxkbfile gnupg gtk3 libsecret nss libnotify
 
 name=vscode-bin
-version=1.64.2-
+_name=visual-studio-code
+version=1.64.2
 release=1
-source="https://github.com/Microsoft/vscode/archive/${version}.tar.gz"
+IGNORE_MDSUM="yes"
+source="$name-$version.tar.gz::https://update.code.visualstudio.com/${version}/linux-x64/stable
+	$_name.desktop
+	$_name-url-handler.desktop"
 
 build() {
-	ls
+	cd VSCode-linux-x64
+	mkdir -p $PKG/opt/$_name
+	cp -Rv * $PKG/opt/$_name
+	mkdir -p $PKG/usr/bin
+	ln -s /opt/$_name/bin/code $PKG/usr/bin/code
+	install -Dm644 $SRC/$_name.desktop $PKG/usr/share/applications/$_name.desktop
+	install -Dm644 $SRC/$_name-url-handler.desktop $PKG/usr/share/applications/$_name-url-handler.desktop
 }
