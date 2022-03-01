@@ -9,5 +9,5 @@ source="https://downloads.vivaldi.com/snapshot/vivaldi-snapshot_${version}-1_amd
 
 build() {
 	bsdtar -xf vivaldi-snapshot_${version}-${release}_amd64.deb
-	tar -xf data.xz -C $PKG
+	tar -xf data.tar.xz -C $PKG
 }
