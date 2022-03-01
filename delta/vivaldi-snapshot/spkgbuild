@@ -1,13 +1,13 @@
-# description	: 
-# homepage	: 
-# depends	: 
+# description	: Full featured and customizable Internet Application Suite, made with users in mind ! (snapshot) 
+# homepage	: https://vivaldi.com/blog/desktop/snapshots/
+# depends	: gtk3 font-bh-ttf cups nss alsa desktop-file-utils shared-mime-info hicolor-icon-theme
 
 name=vivaldi-snapshot
-version=
+version=5.2.2581.4
 release=1
-source="https://downloads.vivaldi.com/snapshot/vivaldi-snapshot_5.2.2581.4-1_amd64.deb"
+source="https://downloads.vivaldi.com/snapshot/vivaldi-snapshot_${version}-1_amd64.deb"
 
 build() {
-	bsdtar -xf vivaldi-snapshot_5.2.2581.4-1_amd64.deb
+	bsdtar -xf vivaldi-snapshot_${version}-${release}_amd64.deb
 	tar -xf data.xz -C $PKG
 }
