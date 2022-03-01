@@ -1,0 +1,13 @@
+# description	: 
+# homepage	: 
+# depends	: 
+
+name=vivaldi-snapshot
+version=
+release=1
+source="https://downloads.vivaldi.com/snapshot/vivaldi-snapshot_5.2.2581.4-1_amd64.deb"
+
+build() {
+	bsdtar -xf vivaldi-snapshot_5.2.2581.4-1_amd64.deb
+	tar -xf data.xz -C $PKG
+}
