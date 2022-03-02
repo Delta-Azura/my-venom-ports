@@ -1,6 +1,6 @@
-# description	: dev
+# description	: google chrome beta
 # homepage	: https://www.google.com/chrome/beta/
-# depends	: 
+# depends	: libxkbcommon alsa-lib gconf gtk3 libxtst nss cups libarchive
 
 name=google-chrome-beta
 version=99.0.4844.51
