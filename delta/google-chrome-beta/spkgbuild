@@ -1,0 +1,13 @@
+# description	: dev
+# homepage	: https://www.google.com/chrome/beta/
+# depends	: 
+
+name=google-chrome-beta
+version=99.0.4844.51
+release=1
+source="https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb"
+
+build() {
+	bsdtar -xf google-chrome-beta_current_amd64.deb
+	tar -xf data.tar.xz -C $PKG
+}
