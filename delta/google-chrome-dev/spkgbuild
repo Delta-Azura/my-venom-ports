@@ -1,0 +1,13 @@
+# description	: google chrome for dev
+# homepage	: https://www.google.com/intl/fr/chrome/dev/
+# depends	: libxkbcommon alsa-lib gconf gtk3 libxtst nss cups libarchive 
+
+name=google-chrome-dev
+version=100.0.4896.12
+release=1
+source="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
+
+build() {
+	bsdtar -xf google-chrome-unstable_current_amd64.deb
+	tar -xf data.tar.xz -C $PKG
+}
